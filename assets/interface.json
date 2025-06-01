@@ -1,84 +1,313 @@
 {
-    "controller": [
-        {
-            "name": "安卓端",
-            "type": "Adb"
-        },
-        {
-            "name": "桌面端",
-            "type": "Win32",
-            "win32": {
-                "class_regex": ".*",
-                "window_regex": "Visual Studio"
-            }
-        }
-    ],
-    "resource": [
-        {
-            "name": "官服",
-            "path": [
-                "{PROJECT_DIR}/resource"
-            ]
-        },
-        {
-            "name": "B 服",
-            "path": [
-                "{PROJECT_DIR}/resource",
-                "{PROJECT_DIR}/resource_bilibili"
-            ]
-        }
-    ],
-    "agent": {
-        "child_exec": "python",
-        "child_args": [
-            "{PROJECT_DIR}/agent/main.py"
-        ]
-    },
-    "task": [
-        {
-            "name": "普通任务",
-            "entry": "MyTask1"
-        },
-        {
-            "name": "选项任务",
-            "entry": "MyTask2",
-            "option": [
-                "任务选项1"
-            ]
-        },
-        {
-            "name": "参数任务",
-            "entry": "MyTask3",
-            "option": [
-                "任务选项1"
-            ],
-            "pipeline_override": {}
-        },
-        {
-            "name": "带Custom的任务",
-            "entry": "MyTask4"
-        }
-    ],
-    "option": {
-        "任务选项1": {
-            "cases": [
-                {
-                    "name": "文本1",
-                    "pipeline_override": {
-                        "OcrTask": {
-                            "text": "文本1"
-                        }
-                    }
-                },
-                {
-                    "name": "文本2",
-                    "pipeline_override": {
-                        "OcrTask": {
-                            "text": "文本2"
-                        }
-                    }
-                }
-            ]
-        }
+  "controller": [
+    {
+      "name": "安卓端",
+      "type": "Adb"
     }
+  ],
+  "resource": [
+    {
+      "name": "官服",
+      "path": [
+        "{PROJECT_DIR}/resource"
+      ]
+    }
+  ],
+  "task": [
+    {
+      "name": "启动游戏",
+      "entry": "StartGame_Start"
+    },
+    {
+      "name": "地图采集",
+      "entry": "Collect_StartGame_HomePage"
+    },
+    {
+      "name": "地图扫荡",
+      "entry": "Battle_StartGame_HomePage",
+      "option": [
+        "属性石头",
+        "双倍图战斗次数"
+      ]
+    },
+    {
+      "name": "装备制作强化分解炼制",
+      "entry": "Equip_HomePage"
+    },
+    {
+      "name": "白嫖抽卡",
+      "entry": "Gacha_BackHomePage"
+    },
+    {
+      "name": "竞技场",
+      "entry": "PVP_HomePage",
+      "option": [
+        "竞技场战斗次数"
+      ]
+    },
+    {
+      "name": "领取日常奖励",
+      "entry": "GetReward_HomePage",
+      "option": [
+        "公会奖励"
+      ]
+    },
+    {
+      "name": "领取通行证奖励",
+      "entry": "Pass_HomePage"
+    },
+    {
+      "name": "领取邮件",
+      "entry": "Mail_HomePage"
+    },
+    {
+      "name": "领取成就",
+      "entry": "GetAchievement_HomePage"
+    },
+    {
+      "name": "活动图扫荡",
+      "entry": "Event_HomePage",
+      "option": [
+        "活动图小游戏扫荡"
+      ]
+    }
+  ],
+  "option": {
+    "属性石头": {
+      "cases": [
+        {
+          "name": "火",
+          "pipeline_override": {
+            "Battle_FastBattleTouch_StoneSelect": {
+              "target": [
+                230,
+                120,
+                0,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "name": "水",
+          "pipeline_override": {
+            "Battle_FastBattleTouch_StoneSelect": {
+              "target": [
+                230,
+                175,
+                0,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "name": "风",
+          "pipeline_override": {
+            "Battle_FastBattleTouch_StoneSelect": {
+              "target": [
+                230,
+                230,
+                0,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "name": "光",
+          "pipeline_override": {
+            "Battle_FastBattleTouch_StoneSelect": {
+              "target": [
+                230,
+                290,
+                0,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "name": "暗",
+          "pipeline_override": {
+            "Battle_FastBattleTouch_StoneSelect": {
+              "target": [
+                230,
+                350,
+                0,
+                0
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "竞技场战斗次数": {
+      "cases": [
+        {
+          "name": "战斗一次",
+          "pipeline_override": {
+            "PVP_AutoBattleMAX": {
+              "target": [
+                425,
+                435,
+                0,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "name": "Max",
+          "pipeline_override": {
+            "PVP_AutoBattleMAX": {
+              "target": [
+                865,
+                435,
+                0,
+                0
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "双倍图战斗次数": {
+      "cases": [
+        {
+          "name": "战斗一次",
+          "pipeline_override": {
+            "Battle_FastBattleTouch2": {
+              "next": [
+                "Battle_FastBattle2"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Max",
+          "pipeline_override": {
+            "Battle_FastBattleTouch2": {
+              "next": [
+                "Battle_FastBattleMAXTouch"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "活动图小游戏扫荡": {
+      "cases": [
+        {
+          "name": "开启",
+          "pipeline_override": {
+            "Event_NormalBattleBack2": {
+              "next": [
+                "Event_Explore"
+              ]
+            }
+          }
+        },
+        {
+          "name": "关闭",
+          "pipeline_override": {
+            "Event_NormalBattleBack2": {
+              "next": [
+                "Event_LeaveEvent"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "公会奖励": {
+      "cases": [
+        {
+          "name": "开启",
+          "pipeline_override": {
+            "GetReward_BackHomePage": {
+              "next": [
+                "GetReward_EnterUnion"
+              ]
+            }
+          }
+        },
+        {
+          "name": "关闭",
+          "pipeline_override": {
+            "GetReward_BackHomePage": {
+              "next": [
+                "GetReward_DailyReward"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "测试模式": {
+      "cases": [
+        {
+          "name": "关闭",
+          "pipeline_override": {
+            "Battle_FinBackMapPage": {
+              "next": []
+            }
+          }
+        },
+        {
+          "name": "开启",
+          "pipeline_override": {
+            "Battle_FinBackMapPage": {
+              "next": [
+                "Equip_HomePage"
+              ]
+            },
+            "Collect_FinBackMapPage": {
+              "next": [
+                "Battle_StartGame_HomePage"
+              ]
+            },
+            "Equip_FinBackMapPage": {
+              "next": [
+                "Gacha_BackHomePage"
+              ]
+            },
+            "GACHA_FinBackMapPage": {
+              "next": [
+                "PVP_HomePage"
+              ]
+            },
+            "GetReward_FinBackMapPage": {
+              "next": [
+                "Pass_HomePage"
+              ]
+            },
+            "Mail_FinBackMapPage": {
+              "next": [
+                "Event_HomePage"
+              ]
+            },
+            "Pass_FinBackMapPage": {
+              "next": [
+                "Mail_HomePage"
+              ]
+            },
+            "PVP_FinBackMapPage": {
+              "next": [
+                "GetReward_HomePage"
+              ]
+            },
+            "Start_FinBackMapPage": {
+              "next": [
+                "Collect_StartGame_HomePage"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "name": "Maa-Brown-Dust-2",
+  "url": "https://github.com/Zoi-Gaiz/Maa-Brown-Dust-2"
+  // 
 }

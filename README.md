@@ -1,4 +1,5 @@
 <!-- markdownlint-disable MD033 MD041 -->
+原项目 https://github.com/JZPPP/MaaBD2 本项目仅为个人的练手
 <p align="center">
   <img alt="LOGO" src="https://cdn.jsdelivr.net/gh/MaaAssistantArknights/design@main/logo/maa-logo_512x512.png" width="256" height="256" />
 </p>
