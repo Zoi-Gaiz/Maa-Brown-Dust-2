@@ -1,0 +1,102 @@
+{
+    "HardGo_Auto": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "OCR",
+        "roi": [
+            1025, 646, 95, 34
+        ],
+        "expected": "自动进行",
+        "post_delay": 5000,
+        "action": "Click",
+        "next": [
+            "HardGo_Back"
+        ]
+    },
+    "HardGo_Back": {
+       "doc": "点击领取全部返回",
+        "recognition": "OCR",
+        "roi": [
+            558,
+            630,
+            147,
+            34
+        ],
+        "expected": "返回",
+        "action": "Click",
+        "post_delay": 5000,
+         "next": [
+            "HardGo_Battle"
+        ]
+    },
+    "HardGo_Battle": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "OCR",
+        "roi": [
+            1025, 646, 95, 34
+        ],
+        "expected": "战斗",
+        "action": "Click",
+        "post_delay": 5000,
+        "next": [
+            "HardGo_Skip"
+        ]
+    },
+    "HardGo_Skip": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1036, 34, 40, 29
+        ],
+        "template": "skip.png",
+        "post_delay": 5000,
+        "action": "Click",
+        "next": [
+            "HardGo_Sure"
+        ]
+    },
+     "HardGo_Sure": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "OCR",
+        "roi": [
+            682, 404, 51, 27
+        ],
+        "expected": "确认",
+        "post_delay": 10000,
+        "timeout": 300000,
+        "action": "Click",
+        "next": [
+            "HardGo_BattleBack"
+        ]
+    },
+    "HardGo_BattleBack": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "OCR",
+        "roi": [
+            1088, 659, 53, 28
+        ],
+        "expected": "离开",
+        "timeout": 30000,
+        "post_delay": 5000,
+        "action": "Click",
+        "next": [
+            "HardGo_Backs"
+        ]
+    },
+    "HardGo_Backs": {
+       "doc": "点击领取全部返回",
+        "recognition": "OCR",
+        "roi": [
+            558,
+            630,
+            147,
+            34
+        ],
+        "expected": "返回",
+        "action": "Click",
+        "post_delay": 5000,
+         "next": [
+            "HardGo_Auto",
+            "HardGo_Battle"
+        ]
+    }
+}

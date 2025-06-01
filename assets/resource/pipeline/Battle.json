@@ -1,0 +1,328 @@
+{
+    "Battle_StartGame_HomePage": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "next": [
+            "Battle_TouchCollect"
+        ]
+    },
+    "Battle_TouchCollect": {
+        "doc": "找到图钉-点击左上扫荡",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "action": "Click",
+        "target": [
+            120,
+            185,
+            0,
+            0
+        ],
+        "next": [
+            "Battle_CollectBattleTouch"
+        ]
+    },
+    "Battle_CollectBattleTouch": {
+        "doc": "寻找快速狩猎，点击",
+        "recognition": "OCR",
+        "roi": [
+            1029,
+            631,
+            91,
+            35
+        ],
+        "expected": "快速狩猎",
+        "post_delay": 3000,
+        "action": "Click",
+        "next": [
+            "Battle_FastBattle"
+        ]
+    },
+    "Battle_FastBattle": {
+        "doc": "快速狩猎界面，点击狩猎",
+        "recognition": "OCR",
+        "roi": [
+            582,
+            159,
+            113,
+            42
+        ],
+        "expected": "快速狩猎",
+        "action": "Click",
+        "post_delay": 5000,
+        "target": [
+            700,
+            545,
+            0,
+            0
+        ],
+        "next": [
+            "Battle_FastBattleReward"
+        ]
+    },
+    "Battle_FastBattleReward": {
+        "doc": "狩猎Reward",
+        "recognition": "OCR",
+        "roi": [
+            558,
+            630,
+            147,
+            34
+        ],
+        "expected": "点击画面即可返回",
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "Battle_DoubleReward"
+        ]
+    },
+    "Battle_DoubleReward": {
+        "doc": "点击双倍图",
+        "recognition": "TemplateMatch",
+        "roi": [
+            100,
+            158,
+            36,
+            116
+        ],
+        "template": "DoubleReward.png",
+        "action": "Click",
+        "target": [
+            140,
+            279,
+            0,
+            0
+        ],
+        "post_delay": 2000,
+        "next": [
+            "Battle_FastBattleTouch2"
+        ]
+    },
+    "Battle_FastBattleTouch2": {
+        "doc": "寻找快速狩猎，点击",
+        "recognition": "OCR",
+        "roi": [
+            1029,
+            631,
+            91,
+            35
+        ],
+        "expected": "快速狩猎",
+        "action": "Click",
+        "next": [
+            "Battle_FastBattleMAXTouch"
+        ]
+    },
+    "Battle_FastBattleMAXTouch": {
+        "doc": "快速狩猎界面，点击MAX",
+        "recognition": "OCR",
+        "roi": [
+            776,
+            375,
+            64,
+            36
+        ],
+        "expected": "MAX",
+        "action": "Click",
+        "next": [
+            "Battle_FastBattle2"
+        ]
+    },
+    "Battle_FastBattle2": {
+        "doc": "快速狩猎界面，点击狩猎",
+        "recognition": "OCR",
+        "roi": [
+            643,
+            528,
+            59,
+            78
+        ],
+        "expected": "狩猎",
+        "action": "Click",
+        "post_delay": 5000,
+        "next": [
+            "Battle_FastBattleReward2"
+        ]
+    },
+    "Battle_FastBattleReward2": {
+        "doc": "狩猎Reward",
+        "recognition": "OCR",
+        "roi": [
+            558,
+            630,
+            147,
+            34
+        ],
+        "expected": "点击画面即可返回",
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "Battle_StoneBattle"
+        ]
+    },
+    "Battle_StoneBattle": {
+        "doc": "寻找双倍图标-点击石头图",
+        "recognition": "TemplateMatch",
+        "roi": [
+            100,
+            158,
+            36,
+            116
+        ],
+        "template": "DoubleReward.png",
+        "action": "Click",
+        "post_delay": 1000,
+        "target": [
+            135,
+            350,
+            0,
+            0
+        ],
+        "next": [
+            "Battle_FastBattleTouch_StoneSelect"
+        ]
+    },
+    "Battle_FastBattleTouch_StoneSelect": {
+        "doc": "寻找火之洞穴，点击属性图_暗",
+        "recognition": "OCR",
+        "roi": [
+            181,
+            98,
+            100,
+            41
+        ],
+        "expected": "火之洞穴",
+        "action": "Click",
+        "post_delay": 1000,
+        "target": [
+            230,
+            350,
+            0,
+            0
+        ],
+        "next": [
+            "Battle_FastBattleTouch3"
+        ]
+    },
+    "Battle_FastBattleTouch3": {
+        "doc": "寻找快速狩猎，点击",
+        "recognition": "OCR",
+        "roi": [
+            1029,
+            631,
+            91,
+            35
+        ],
+        "expected": "快速狩猎",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "Battle_FastBattleMAXTouch2"
+        ]
+    },
+    "Battle_FastBattleMAXTouch2": {
+        "doc": "快速狩猎界面，点击MAX",
+        "recognition": "OCR",
+        "roi": [
+            776,
+            375,
+            64,
+            36
+        ],
+        "expected": "MAX",
+        "post_delay": 1000,
+        "action": "Click",
+        "next": [
+            "Battle_FastBattle3"
+        ]
+    },
+    "Battle_FastBattle3": {
+        "doc": "快速狩猎界面，点击狩猎",
+        "recognition": "OCR",
+        "roi": [
+            582,
+            159,
+            113,
+            42
+        ],
+        "expected": "快速狩猎",
+        "action": "Click",
+        "post_delay": 5000,
+        "target": [
+            700,
+            545,
+            0,
+            0
+        ],
+        "next": [
+            "Battle_FastBattleReward3"
+        ]
+    },
+    "Battle_FastBattleReward3": {
+        "doc": "狩猎Reward",
+        "recognition": "OCR",
+        "roi": [
+            558,
+            630,
+            147,
+            34
+        ],
+        "expected": "点击画面即可返回",
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "Battle_BackHomePage"
+        ]
+    },
+    "Battle_BackHomePage": {
+        "doc": "返回本子地图",
+        "recognition": "OCR",
+        "roi": [
+            1029,
+            631,
+            91,
+            35
+        ],
+        "expected": "快速狩猎",
+        "action": "Click",
+        "target": [
+            135,
+            37,
+            0,
+            0
+        ],
+        "next": [
+            "Battle_FinBackMapPage"
+        ]
+    },
+    "Battle_FinBackMapPage": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "next": []
+    }
+}

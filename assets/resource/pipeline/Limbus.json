@@ -1,0 +1,30 @@
+{
+    "LimbusAuto": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "OCR",
+        "timeout":600000,
+        "roi": [
+            870,495,151,85
+        ],
+        "expected": "胜",
+        "post_delay": 5000,
+        "action": "Click",
+        "next": [
+            "LimbusSkip"
+        ]
+    },
+    "LimbusSkip": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "TemplateMatch",
+        "timeout":600000,
+        "roi": [
+            815,534,156,48
+        ],
+        "template" : "BS//battle.png",
+        "post_delay": 5000,
+        "action": "Click",
+        "next": [
+            "LimbusAuto"
+        ]
+    }
+}

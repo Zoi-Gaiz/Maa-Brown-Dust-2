@@ -1,0 +1,266 @@
+{
+    "GetReward_HomePage": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "next": [
+            "GetReward_BackHomePage"
+        ]
+    },
+    "GetReward_BackHomePage": {
+        "doc": "找到图钉-点击返回主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "action": "Click",
+        "target": [
+            1186,
+            46,
+            0,
+            0
+        ],
+        "next": [
+            "GetReward_EnterUnion"
+        ]
+    },
+    "GetReward_EnterUnion": {
+        "doc": "点击公会",
+        "recognition": "OCR",
+        "action": "Click",
+        "roi": [
+            279,
+            140,
+            60,
+            35
+        ],
+        "post_delay": 1000,
+        "expected": "公会",
+        "next": [
+            "GetReward_UnionGUI"
+        ]
+    },
+    "GetReward_UnionGUI": {
+        "doc": "公会签到",
+        "recognition": "OCR",
+        "roi": [
+            606, 261, 66, 20
+        ],
+        "expected":"成功",
+        "action": "Click",
+        "target": [
+            625,
+            525,
+            0,
+            0
+        ],
+        "post_delay": 3000,
+        "next": [
+            "GetReward_UnionBack"
+        ]
+    },
+    "GetReward_UnionBack": {
+        "doc": "公会返回主页",
+        "recognition": "OCR",
+        "roi": [
+            219,
+            21,
+            65,
+            41
+        ],
+        "post_delay": 3000,
+        "expected": "公会",
+        "action": "Click",
+        "target": [
+            135,
+            38,
+            0,
+            0
+        ],
+        "next": [
+            "GetReward_DailyReward"
+        ]
+    },
+    "GetReward_DailyReward": {
+        "doc": "识别点击任务",
+        "recognition": "OCR",
+        "roi": [
+            460,
+            656,
+            145,
+            32
+        ],
+        "post_delay": 1000,
+        "expected": "任务",
+        "action": "Click",
+        "next": [
+            "GetReward_GetDailyReward"
+        ]
+    },
+    "GetReward_GetDailyReward": {
+        "doc": "点击领取全部",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1022,
+            640,
+            138,
+            38
+        ],
+        "template": "dailyreward.png",
+        "threshold": 0.99,
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "GetReward_GetDailyRewardBack"
+        ]
+    },
+    "GetReward_GetDailyRewardBack": {
+        "doc": "点击领取全部返回",
+        "recognition": "OCR",
+        "roi": [
+            558,
+            630,
+            147,
+            34
+        ],
+        "expected": "返回",
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "GetReward_BackHomePage2"
+        ]
+    },
+    "GetReward_BackHomePage2": {
+        "doc": "点击领取全部返回",
+        "recognition": "OCR",
+        "roi": [
+            215,
+            19,
+            122,
+            42
+        ],
+        "expected": "每日任务",
+        "action": "Click",
+        "post_delay": 3000,
+        "target": [
+            135,
+            38,
+            0,
+            0
+        ],
+        "next": [
+            "GetReward_BusinReward"
+        ]
+    },
+    "GetReward_BusinReward": {
+        "doc": "识别点击餐馆",
+        "recognition": "OCR",
+        "roi": [
+            76,
+            181,
+            112,
+            93
+        ],
+        "post_delay": 1000,
+        "expected": "餐馆",
+        "action": "Click",
+        "next": [
+            "GetReward_GetBusinReward"
+        ]
+    },
+    "GetReward_GetBusinReward": {
+        "doc": "点击结算",
+        "recognition": "OCR",
+        "roi": [
+            604,
+            530,
+            67,
+            38
+        ],
+        "post_delay": 1000,
+        "expected": "结算",
+        "action": "Click",
+        "next": [
+            "GetReward_GetBusinRewardBack"
+        ]
+    },
+    "GetReward_GetBusinRewardBack": {
+        "doc": "点击领取全部返回",
+        "recognition": "OCR",
+        "roi": [
+            552,
+            627,
+            165,
+            42
+        ],
+        "expected": "画面",
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "GetReward_FinGetReward"
+        ]
+    },
+    "GetReward_FinGetReward": {
+        "doc": "识别左下抽抽乐",
+        "recognition": "OCR",
+        "roi": [
+            98,
+            656,
+            66,
+            32
+        ],
+        "expected": "抽抽乐",
+        "next": [
+            "GetReward_BackMapPage"
+        ]
+    },
+    "GetReward_BackMapPage": {
+        "doc": "识别左下抽抽乐-返回地图页",
+        "recognition": "OCR",
+        "roi": [
+            98,
+            656,
+            66,
+            32
+        ],
+        "expected": "抽抽乐",
+        "action": "Click",
+        "target": [
+            135,
+            40,
+            0,
+            0
+        ],
+        "next": [
+            "GetReward_FinBackMapPage"
+        ]
+    },
+    "GetReward_FinBackMapPage": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "next": []
+    }
+}

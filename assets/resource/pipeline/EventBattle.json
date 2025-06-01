@@ -1,0 +1,292 @@
+{
+    "Event_HomePage": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "next": [
+            "Event_BackHomePage"
+        ]
+    },
+    "Event_BackHomePage": {
+        "doc": "找到图钉-点击返回主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "action": "Click",
+        "target": [
+            1186,
+            46,
+            0,
+            0
+        ],
+        "next": [
+            "Event_EnterEvent"
+        ]
+    },
+    "Event_EnterEvent": {
+        "doc": "识别左下抽抽乐-点击活动",
+        "recognition": "OCR",
+        "roi": [
+            98,
+            656,
+            66,
+            32
+        ],
+        "expected": "抽抽乐",
+        "action": "Click",
+        "post_delay": 5000,
+        "target": [
+            1110,
+            365,
+            0,
+            0
+        ],
+        "next": [
+            "Event_EnterNormalBattle"
+        ]
+    },
+    "Event_EnterNormalBattle": {
+        "doc": "点击普通战斗",
+        "recognition": "OCR",
+        "roi": [
+            202,
+            579,
+            284,
+            117
+        ],
+        "expected": "普通",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "Event_FastNormalBattle"
+        ],
+        "on_error": "Event_NormalBattleBack2"
+    },
+    "Event_FastNormalBattle": {
+        "doc": "快速战斗",
+        "recognition": "OCR",
+        "roi": [
+            856,
+            627,
+            85,
+            41
+        ],
+        "expected": "快速战斗",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "Event_NormalBattleMAX"
+        ]
+    },
+    "Event_NormalBattleMAX": {
+        "doc": "快速战斗MAX",
+        "recognition": "OCR",
+        "roi": [
+            777,
+            369,
+            64,
+            36
+        ],
+        "expected": "MAX",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "Event_TouchNormalBattle"
+        ]
+    },
+    "Event_TouchNormalBattle": {
+        "doc": "点击战斗",
+        "recognition": "OCR",
+        "roi": [
+            659,
+            574,
+            51,
+            34
+        ],
+        "expected": "战斗",
+        "action": "Click",
+        "post_delay": 5000,
+        "next": [
+            "Event_NormalBattleBack"
+        ]
+    },
+    "Event_NormalBattleBack": {
+        "doc": "奖励返回",
+        "recognition": "OCR",
+        "roi": [
+            558,
+            627,
+            144,
+            38
+        ],
+        "expected": "点击画面即可返回",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "Event_NormalBattleBack2"
+        ]
+    },
+    "Event_NormalBattleBack2": {
+        "doc": "快速战斗-返回",
+        "recognition": "OCR",
+        "roi": [
+            668,
+            626,
+            92,
+            43
+        ],
+        "expected": "伙伴",
+        "action": "Click",
+        "target": [
+            130,
+            46,
+            0,
+            0
+        ],
+        "post_delay": 1000,
+        "next": [
+            "Event_Explore"
+        ]
+    },
+    "Event_Explore": {
+        "doc": "战场探索",
+        "recognition": "OCR",
+        "roi": [
+            598,
+            617,
+            90,
+            60
+        ],
+        "expected": "战场探索",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "Event_FastExplore"
+        ]
+    },
+    "Event_FastExplore": {
+        "doc": "快速完成",
+        "recognition": "OCR",
+        "roi": [
+            722,
+            557,
+            89,
+            36
+        ],
+        "expected": "快速完成",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "Event_FastExplore2"
+        ]
+    },
+    "Event_FastExplore2": {
+        "doc": "快速战斗-确认",
+        "recognition": "OCR",
+        "roi": [
+            697,
+            516,
+            58,
+            32
+        ],
+        "expected": "确认",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "Event_FastExploreRewardBack"
+        ]
+    },
+    "Event_FastExploreRewardBack": {
+        "doc": "奖励返回",
+        "recognition": "OCR",
+        "roi": [
+            556,
+            625,
+            147,
+            38
+        ],
+        "expected": "点击画面即可返回",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "Event_FastExploreBack"
+        ]
+    },
+    "Event_FastExploreBack": {
+        "doc": "战场探索-返回",
+        "recognition": "OCR",
+        "roi": [
+            215,
+            16,
+            124,
+            50
+        ],
+        "expected": "战场探索",
+        "action": "Click",
+        "target": [
+            130,
+            46,
+            0,
+            0
+        ],
+        "post_delay": 1000,
+        "next": [
+            "Event_LeaveEvent"
+        ]
+    },
+    "Event_LeaveEvent": {
+        "doc": "普通战斗-离开活动页",
+        "recognition": "OCR",
+        "roi": [
+            202,
+            579,
+            284,
+            117
+        ],
+        "expected": "普通",
+        "action": "Click",
+        "target": [
+            130,
+            46,
+            0,
+            0
+        ],
+        "post_delay": 1000,
+        "next": [
+            "Even_BackMapPage"
+        ]
+    },
+    "Even_BackMapPage": {
+        "doc": "识别左下抽抽乐-返回地图页",
+        "recognition": "OCR",
+        "roi": [
+            98,
+            656,
+            66,
+            32
+        ],
+        "expected": "抽抽乐",
+        "action": "Click",
+        "target": [
+            135,
+            40,
+            0,
+            0
+        ]
+    }
+}

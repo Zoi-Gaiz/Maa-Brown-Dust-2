@@ -1,0 +1,110 @@
+{
+    "Collect_StartGame_HomePage": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "post_delay": 5000,
+        "next": [
+            "Collect_PerPetTask"
+        ]
+    },
+    "Collect_PerPetTask": {
+        "doc": "宠物派遣",
+        "recognition": "TemplateMatch",
+        "roi": [
+            866,
+            550,
+            28,
+            28
+        ],
+        "action": "Click",
+        "post_delay": 5000,
+        "template": "PetTask.png",
+        "next": [
+            "Collect_Skill1"
+        ]
+    },
+    "Collect_Skill1": {
+        "doc": "PVE点击技能1",
+        "action": "Click",
+        "post_delay": 5000,
+        "target": [
+            1012,
+            648,
+            0,
+            0
+        ],
+        "next": [
+            "Collect_Skill2"
+        ]
+    },
+    "Collect_Skill2": {
+        "doc": "PVE点击技能2",
+        "template": "todaytask.png",
+        "action": "Click",
+        "post_delay": 5000,
+        "target": [
+            980,
+            560,
+            0,
+            0
+        ],
+        "next": [
+            "Collect_Skill3"
+        ]
+    },
+    "Collect_Skill3": {
+        "doc": "PVE点击技能3",
+        "template": "todaytask.png",
+        "action": "Click",
+        "post_delay": 5000,
+        "target": [
+            1010,
+            480,
+            0,
+            0
+        ],
+        "next": [
+            "Collect_PetTask"
+        ],
+        "on_error": "Collect_FinBackMapPage"
+    },
+    "Collect_PetTask": {
+        "doc": "宠物派遣",
+        "recognition": "TemplateMatch",
+        "roi": [
+            866,
+            550,
+            28,
+            28
+        ],
+        "action": "Click",
+        "post_delay": 5000,
+        "template": "PetTask.png",
+        "next": [
+            "Collect_FinBackMapPage"
+        ]
+    },
+    "Collect_FinBackMapPage": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "next": []
+    }
+}

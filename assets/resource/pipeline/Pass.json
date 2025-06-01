@@ -1,0 +1,225 @@
+{
+    "Pass_HomePage": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "next": [
+            "Pass_BackHomePage"
+        ]
+    },
+    "Pass_BackHomePage": {
+        "doc": "找到图钉-点击返回主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "action": "Click",
+        "target": [
+            1186,
+            46,
+            0,
+            0
+        ],
+        "next": [
+            "Pass_EnterPass"
+        ]
+    },
+    "Pass_EnterPass": {
+        "doc": "识别左下抽抽乐-点击通行证",
+        "recognition": "OCR",
+        "roi": [
+            98,
+            656,
+            66,
+            32
+        ],
+        "expected": "抽抽乐",
+        "action": "Click",
+        "post_delay": 1000,
+        "target": [
+            1150,
+            245,
+            0,
+            0
+        ],
+        "next": [
+            "Pass_SelectPass"
+        ]
+    },
+    "Pass_SelectPass": {
+        "doc": "选择通行证",
+        "recognition": "TemplateMatch",
+        "roi": [
+            240,
+            140,
+            56,
+            300
+        ],
+        "template": [
+            "pass1.png"
+        ],
+        "threshold": 0.90,
+        "post_delay": 1000,
+        "action": "Click",
+        "next": [
+            "Pass_SelectPassTask"
+        ]
+    },
+    "Pass_SelectPassTask": {
+        "doc": "选择通行证任务",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1148,
+            469,
+            30,
+            30
+        ],
+        "template": [
+            "Pass.png"
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "Pass_GetAll"
+        ]
+    },
+    "Pass_GetAll": {
+        "doc": "全部获得",
+        "recognition": "OCR",
+        "roi": [
+            981,
+            559,
+            82,
+            36
+        ],
+        "expected": "全部获得",
+        "post_delay": 1000,
+        "action": "Click",
+        "next": [
+            "Pass_GetAllBack"
+        ]
+    },
+    "Pass_GetAllBack": {
+        "doc": "点击画面即可返回",
+        "recognition": "OCR",
+        "roi": [
+            556,
+            628,
+            148,
+            36
+        ],
+        "expected": "点击画面即可返回",
+        "post_delay": 1000,
+        "action": "Click",
+        "next": [
+            "Pass_SelectPassLev",
+            "Pass_Back"
+        ]
+    },
+    "Pass_SelectPassLev": {
+        "doc": "选择通行证等级",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1145,
+            230,
+            34,
+            37
+        ],
+        "template": [
+            "Pass.png"
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "Pass_LevGetAll"
+        ]
+    },
+    "Pass_LevGetAll": {
+        "doc": "全部获得",
+        "recognition": "OCR",
+        "roi": [
+            981,
+            559,
+            82,
+            36
+        ],
+        "expected": "全部获得",
+        "post_delay": 1000,
+        "action": "Click",
+        "next": [
+            "Pass_SelectPass",
+            "Pass_Back"
+        ]
+    },
+    "Pass_Back": {
+        "doc": "返回",
+        "recognition": "OCR",
+        "roi": [
+            215,
+            14,
+            102,
+            50
+        ],
+        "expected": "通行证",
+        "action": "Click",
+        "post_delay": 1000,
+        "target": [
+            135,
+            40,
+            0,
+            0
+        ],
+        "next": [
+            "Pass_BackMapPage"
+        ]
+    },
+    "Pass_BackMapPage": {
+        "doc": "识别左下抽抽乐-返回地图页",
+        "recognition": "OCR",
+        "roi": [
+            98,
+            656,
+            66,
+            32
+        ],
+        "expected": "抽抽乐",
+        "action": "Click",
+        "target": [
+            135,
+            40,
+            0,
+            0
+        ],
+        "next": [
+            "Pass_FinBackMapPage"
+        ]
+    },
+    "Pass_FinBackMapPage": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "next": []
+    }
+}

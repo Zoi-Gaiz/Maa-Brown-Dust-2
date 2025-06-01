@@ -1,0 +1,144 @@
+{
+    "GetAchievement_HomePage": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "next": [
+            "GetAchievement_BackHomePage"
+        ]
+    },
+    "GetAchievement_BackHomePage": {
+        "doc": "找到图钉-点击返回主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "action": "Click",
+        "target": [
+            1186,
+            46,
+            0,
+            0
+        ],
+        "next": [
+            "GetAchievement_Reward"
+        ]
+    },
+    "GetAchievement_Reward": {
+        "doc": "识别点击任务",
+        "recognition": "OCR",
+        "roi": [
+            588,
+            598,
+            145,
+            122
+        ],
+        "post_delay": 1000,
+        "expected": "成就",
+        "action": "Click",
+        "next": [
+            "GetAchievement_GetDailyReward"
+        ]
+    },
+    "GetAchievement_GetDailyReward": {
+        "doc": "点击领取全部",
+        "recognition": "OCR",
+        "roi": [
+            1003,
+            595,
+            177,
+            125
+        ],
+        "expected": "全部获得",
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "GetAchievement_BackHomePage2"
+        ]
+    },
+    "GetAchievement_BackHomePage2": {
+        "doc": "点击领取全部返回",
+        "recognition": "OCR",
+        "roi": [
+            172,
+            0,
+            162,
+            130
+        ],
+        "expected": "成就",
+        "action": "Click",
+        "target": [
+            108,
+            37,
+            0,
+            0
+        ],
+        "post_delay": 3000,
+        "next": [
+            "GetAchievement_FinGetAchievement"
+        ]
+    },
+    "GetAchievement_FinGetAchievement": {
+        "doc": "识别左下抽抽乐",
+        "recognition": "OCR",
+        "roi": [
+            98,
+            656,
+            66,
+            32
+        ],
+        "expected": "抽抽乐",
+        "next": [
+            "GetAchievement_BackMapPage"
+        ]
+    },
+    "GetAchievement_BackMapPage": {
+        "doc": "识别左下抽抽乐-返回地图页",
+        "recognition": "OCR",
+        "roi": [
+            98,
+            656,
+            66,
+            32
+        ],
+        "expected": "抽抽乐",
+        "action": "Click",
+        "target": [
+            135,
+            40,
+            0,
+            0
+        ],
+        "next": [
+            "GetAchievement_FinBackMapPage"
+        ]
+    },
+    "GetAchievement_FinBackMapPage": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1122,
+            646,
+            40,
+            38
+        ],
+        "template": [
+            "pin.png"
+        ],
+        "next": []
+    }
+}

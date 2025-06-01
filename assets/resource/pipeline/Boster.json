@@ -1,0 +1,70 @@
+{
+    "Booster_Start": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "OCR",
+        "roi": [
+            743, 648, 79, 27
+        ],
+        "expected": "连续精炼",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "Booster_SetMax"
+        ]
+    },
+    "Booster_SetMax": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "OCR",
+        "roi": [
+            827, 269, 56, 28
+        ],
+        "expected": "MAX",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "Booster_Refine"
+        ]
+    },
+    "Booster_Refine": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "OCR",
+        "roi": [
+            657, 552, 45, 27
+        ],
+        "expected": "精炼",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "Booster_Sure",
+            "Booster_Skip"
+        ]
+    },
+    "Booster_Skip": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "TemplateMatch",
+        "roi": [
+            1037, 632, 37, 25
+        ],
+        "template": [
+            "skip.png"
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "Booster_Sure"
+        ]
+    },
+    "Booster_Sure": {
+        "doc": "识别右下图钉-章节主页",
+        "recognition": "OCR",
+        "roi": [
+            616, 529, 45, 26
+        ],
+        "expected": "确认",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "Booster_Start"
+        ]
+    }
+}  
